@@ -1,4 +1,5 @@
 import os
+import time
 from dotenv import load_dotenv
 
 from selenium.webdriver.common.by import By
@@ -27,8 +28,7 @@ class LoginPage(object):
         )
         password_field.send_keys(self.password)
         password_field.send_keys(Keys.RETURN)
+        time.sleep(5)
         WebDriverWait(self.driver, 5).until(
             EC.visibility_of_element_located((By.ID, Locators.first_name))
         )
-
-
